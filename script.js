@@ -27,6 +27,17 @@
     });
   }
 
+  // Logo -> scroll to the very top (anchor jump is unreliable with sticky header)
+  var logo = document.querySelector(".logo");
+  if (logo) {
+    logo.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (toggle && nav) closeMenu();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    });
+  }
+
   // Header shadow on scroll
   var header = document.querySelector(".site-header");
   function onScroll() {
