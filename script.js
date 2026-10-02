@@ -28,7 +28,7 @@
   }
 
   // Logo -> scroll to the very top (anchor jump is unreliable with sticky header)
-  var logo = document.querySelector(".logo");
+  var logo = document.querySelector('.logo[href^="#"]');
   if (logo) {
     logo.addEventListener("click", function (e) {
       e.preventDefault();
